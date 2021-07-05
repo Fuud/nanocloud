@@ -65,7 +65,9 @@ public class Classpath {
 			WeakReference<ClasspathEntry> wr = CUSTOM_ENTRIES.get(url);
 			if (wr != null) {
 				ClasspathEntry entry = wr.get();
-				return entry;
+				if (entry != null){
+					return entry;
+			    }
 			}
 			ClasspathEntry entry = newEntry(url);
 			CUSTOM_ENTRIES.put(url, new WeakReference<ClasspathEntry>(entry));
